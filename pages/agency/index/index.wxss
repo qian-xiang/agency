@@ -1,0 +1,16 @@
+@import '/pages/weui.wxss';
+@import '/pages/colorui.wxss';
+@import '/pages/icon.wxss';
+
+
+/* 设置标题标签的样式 */
+.article-list-tag{
+  display: flex;
+  display: -webkit-flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  width: 260rpx;
+  height: 180rpx;
+}
+

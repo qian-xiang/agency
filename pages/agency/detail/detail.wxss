@@ -1,0 +1,5 @@
+@import '/pages/weui.wxss';
+
+.comment_margin{
+  margin-top:50rpx; 
+}

@@ -1,0 +1,42 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+    <view class="page__bd">
+        <!-- <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view> -->
+
+        <form bindsubmit="modifyInformation">
+        
+              <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">学校</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" name='school' placeholder="请输入学校全称" value='{{school}}' bindinput='getSchool' maxlength='100'/>
+                  </view>
+                  <!-- <view class="weui-cell__ft">
+                      <view class="weui-vcode-btn" id='school' catchtap='modifyInformation'>{{schoolButton}}</view>
+                  </view> -->
+              </view>
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">QQ邮箱</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" name='email' placeholder="请输入QQ邮箱" value='{{email}}' bindinput='getEmail' maxlength='20'/>
+                  </view>
+                  <!-- <view class="weui-cell__ft">
+                      <view class="weui-vcode-btn" id='email' catchtap='modifyInformation'>{{emailButton}}</view>
+                  </view> -->
+              </view>      
+            
+          </view>
+        
+            <!-- <button formType="submit" class="weui-btn" type="primary" plain="true">修改</button> -->
+            <!-- <button formType="reset">Reset</button> -->
+            <view class="weui-btn-area">
+                <button formType="submit" class="weui-btn" type="primary">确认修改</button>
+            </view> 
+        </form >
+     
+    </view>
+</view>

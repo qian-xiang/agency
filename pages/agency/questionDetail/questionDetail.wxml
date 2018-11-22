@@ -1,0 +1,15 @@
+<view class="page">
+
+    <view class="page__bd">
+        <view class="weui-article" wx:if='{{answer.length>0}}'>
+
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__p">答：{{answer}}</view>
+                  
+                </view>
+                
+            </view>
+        </view>
+    </view>
+</view>

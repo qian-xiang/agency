@@ -1,0 +1,18 @@
+
+<view class="page">
+ 
+  <view class="page__bd">
+     <view class="weui-cells weui-cells_after-title" wx:if='{{questionArray.length>0}}'>
+            <navigator url="/pages/agency/questionDetail/questionDetail?answer={{item.answer}}"class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for='{{questionArray}}' wx:key='*this'>
+                <view class="weui-cell__hd">{{index+1}}.</view>
+                <view class="weui-cell__bd">{{item.content}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">查看</view>
+            </navigator>
+            
+        </view>
+
+  </view>
+
+</view>
+
+

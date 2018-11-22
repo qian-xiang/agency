@@ -1,0 +1,21 @@
+<view class='weui-flex' style='flex-direction:column;align-items:center;justify-content:space-around;width:100%;height:500rpx;background-color:#3A5FCD;background: linear-gradient(to top, #3A5FCD, white);'>
+    <!-- <image src='/pages/agency/images/logo.jpg' style='height:200rpx;'></image> -->
+    <view  class='weui-flex' style='flex-direction:column;align-items:center;justify-content:space-around;width:600rpx;height:300rpx;background-color:white;border-radius:30rpx;'>
+    
+        <image src='{{ownerHeadImage}}' style='width:80rpx;height:80rpx;border-radius:50%;'></image>
+        <!-- <text style='font-size:16px;'>执笔绘浅香</text> -->
+        <text>{{ownerNickName}}</text>
+        <text>{{content}}</text>    
+    
+    </view>
+
+    <text style='color:white;' wx:if='{{appearYouText==false}}'>已有{{count}}人为TA助力</text>
+    <text style='color:white;' wx:if='{{appearYouText}}'>已有{{count}}人为你助力</text>
+
+</view>
+
+<button id='{{paperId}}' open-type="getUserInfo" class="weui-btn" type="default" plain="true" style=';color:white;background-color:#E64340;border:none' wx:if='{{logined==false}}' bindgetuserinfo='getUserInfoAndHelp'>为TA助力</button>
+
+<button id='{{paperId}}' class="weui-btn" type="default" plain="true" style=';color:white;background-color:#E64340;border:none' wx:if='{{logined}}' catchtap='help'>为TA助力</button>
+<button class="weui-btn" type="default" plain="true" style=';color:white;background-color:green;border:none' wx:if='{{logined}}' catchtap='navigationToIndex'>进入小程序</button>
+<!-- <button open-type='share' class="weui-btn" type="default" plain="true" style=';color:white;background-color:#E64340;border:none' wx:if='{{appearYouButton}}'>分享给好友或者微信群</button> -->

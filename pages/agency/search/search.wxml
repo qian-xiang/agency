@@ -1,0 +1,92 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" confirm-type='全部搜索' value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm='getAllKeyWords'/>
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+              <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+
+            <view class="weui-cell__bd weui-cell" hover-class="weui-cell_active" wx:for='{{keyWordArray}}' wx:key="hhhh" id='{{index}}' data-paper-id='{{item.id}}' catchtap='showPapaerInformation'> 
+                 <view id='{{index}}' data-paper-id='{{item.id}}' catchtap='showPapaerInformation'>{{item.title}}</view>   
+            </view>           
+        </view>
+       </view> 
+        
+        <!-- 模板开始的地方 -->
+          <view style='background-color:#f1f1f1;'>
+                <!-- 主页模板开始的地方 -->
+                    <view class="article-list-li" style='margin-top:20rpx;' wx:for='{{requiredReccordArray}}' wx:key='requiredReccordArray'>
+                          <navigator url="/pages/agency/detail/detail?paperId={{item.id}}" hover-class="weui-cell_active">                          
+                          <view class="article-list-title" style='border-bottom:1px solid #e5e5e5;'>{{item.title}}</view>
+                          <view class="article-list-content" style='display:flex;margin-bottom:20rpx;margin-top:20rpx;'>
+                            <view class="article-list-thumbs">
+                              <image src="{{item.is_upload_img.length>0 ? 'https://www.zbhqx.cn/images/campus_help/published/'+item.id+'/'+item.is_upload_img[0] : '/pages/agency/images/no_images.jpg'}}" mode="widthFix"></image>
+                            </view>
+                            <view class="article-list-desc" style='flex-grow:1;flex-shrink: 1;'>
+                              <!-- <view class='article-list-text'> 这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o</view> --> 
+                              <view class="article-list-tag" style='display:flex;flex-direction:column;justify-content:space-around;height:200rpx;width:200rpx;'>
+                                <view id='reward' style='width:180rpx;height:50rpx;'>
+                                  <!-- <view class='badge success round mr-sm'>报酬：</view> -->
+                                  <view class='badge danger round'>报酬：￥{{item.reward}}</view>
+                                </view>         
+                                <view id='sort' style='width:180rpx;height:50rpx;'>
+                                  <!-- <view class='badge success round mr-sm'>类别：</view> -->
+                                  <!-- style='background-color:#63A2FF;' -->
+                                  <view class='badge success round'>类别：{{item.sort}}</view>
+                                </view>
+                                <view id='status' style='width:180rpx;height:50rpx;'>
+                                  <!-- <view class='badge success round mr-sm'>状态：</view> -->
+                                  <view class='badge success round' style='background-color:#AB66FF'>状态：{{item.status}}</view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                          </navigator>        
+                        
+                          <view class="item-list-data" style='border-top:1rpx solid #e5e5e5'>
+                            <image src="{{item.head_image}}" class='round'></image>
+                            <view class='item-list-author'>
+                              <view class="item-list-name">{{item.nickname}}</view>
+                              <view class="item-list-info">
+                                <text class="iconfont icon-timefill"> {{item.time}}</text>
+                                <view class="item-list-num" style='font-size:20px;'>
+                                <!-- *********举报按钮******** -->
+                                   <text class="iconfont icon-warn" id='{{index}}' catchtap='menuOperator'></text> 
+                                  <text class="iconfont icon-attentionfill">{{item.browseCount}}</text>
+                                  <text class="iconfont icon-likefill" data-request-type='favorite' data-array-index='{{index}}' id='{{item.id}}' catchtap='userAction' wx:if='{{item.isFavorite}}'>{{item.favoriteCount}}</text>
+                                  <text class="iconfont icon-like" data-request-type='favorite' data-array-index='{{index}}' id='{{item.id}}' catchtap='userAction' wx:if='{{!item.isFavorite}}'>{{item.favoriteCount}}</text>
+                                  <text class="iconfont icon-appreciatefill" data-request-type='topRecord' data-array-index='{{index}}' id='{{item.id}}' catchtap='userAction' wx:if='{{item.isTopRecord}}'>{{item.topRecordCount}}</text>  
+                                  <text class="iconfont icon-appreciate" data-request-type='topRecord' data-array-index='{{index}}' id='{{item.id}}' catchtap='userAction' wx:if='{{!item.isTopRecord}}'>{{item.topRecordCount}}</text>  
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                    </view>
+
+ 
+                <!-- 下面这个/view标签是主页模板结束的地方 -->
+                </view>
+
+ 
+        <!--  最外层结束符  -->
+
+           <!-- **********追加【加载更多按钮】********* -->
+              
+                  <!-- <button catchtap='loadMore' wx:if='{{requiredReccordArray.length>0}}' class="weui-btn" type="primary" style='width:100%;background-color:transparent;color:#999'>加载更多</button> -->
+             <view catchtap='loadMore' wx:if='{{next_page_url}}' hover-class='weui-cell_active'>
+                  <button class="weui-btn" type="primary" style='width:100%;background-color:transparent;color:#999'>下一页</button>
+              </view> 
+         </view>
+    

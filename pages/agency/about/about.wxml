@@ -1,0 +1,15 @@
+<view class="page">
+
+    <view class="page__bd">
+        <view class="weui-article">
+
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__p">浅香校园互助小程序是一款致力于为校园师生提供一个解决问题的平台，流程是：任何需要帮忙的人都可以在平台上发帖求助，发帖时还可以发布酬劳吸引助客帮忙。当然，发不发酬劳是由发帖人根据自己的实际情况自己决定。而后，助客通过浏览平台上的求助贴，决定是否对发帖人进行帮助。</view>
+                  
+                </view>
+                
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,125 @@
+<!-- 这是发帖页面  可以加个取消上传图片的图标-->
+<!-- <image src='/pages/agency/images/logo.jpg' id='top'></image>     -->
+
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    
+    <view class="page__bd">
+         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view> 
+     
+    <form bindsubmit="published" bindreset="reset">
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">标题</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name='title' class="weui-input" placeholder="请输入标题" maxlength='100'/>
+                </view>
+            </view>   
+            
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">内容</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea name='content' class="weui-textarea" placeholder="请输入帖子内容,勿上传大小超过2M的图片，若超过需自行压缩。" style="height: 3.3em" maxlength='500'/>
+                    <!-- <view class="weui-textarea-counter">0/300</view> -->
+                </view>
+            </view>
+        </view>
+       
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_switch">
+                <view class="weui-cell__bd">发送图片</view>
+                <view class="weui-cell__ft">
+                 <!-- checked  -->
+                    <switch type='switch' bindchange='getSwitchValueAndChooseImg'/>
+                </view>
+            </view>
+
+            <!-- 图片显示区域 -->
+            <view class="weui-cell" wx:if='{{tempFilesPath.length>0}}'>
+                <view class="weui-cell__bd">
+                   
+                         <image  src="{{item}}" wx:for='{{tempFilesPath}}' wx:key='*this' style="margin-left: 16rpx;margin-top:12rpx;vertical-align: middle;width:30%; height: 100rpx;"></image> 
+                                       
+                </view>
+            </view>
+
+            <!-- 进度条显示区域 -->
+            <view class="weui-cell" wx:if='{{postedId != null}}'>
+
+                <view class="weui-cell__bd">                   
+                          
+                       <progress percent="{{percentValue}}" show-info />                
+                </view>
+            </view>
+        </view>
+        
+         <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd">
+
+                    <picker name='sort' bindchange="bindSortChange" value="{{currentSortIndex}}" range="{{sort}}">
+                        
+                        <view class="weui-select">类别：{{sort[currentSortIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+            
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">报酬:（元）</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name='reward' type='number' class="weui-input" placeholder="请输入金额" maxlength='8'/>
+                </view>
+            </view>   
+            
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd" style="width: 105px">
+                    <picker bindchange="bindContactsChange" name='contactsType' value="{{currentContactsIndex}}" range="{{contacts}}">
+                        <view class="weui-select">{{contacts[currentContactsIndex]}}</view>
+                    </picker>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                    <input name='contacts' class="weui-input" placeholder="请输入对应联系方式的信息" />
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title weui-flex">
+             <checkbox-group name='rule' bindchange="checkboxChange">
+                <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
+                    <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+                    <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                    </view>
+                   
+                </label>
+            </checkbox-group>
+             <navigator url='/pages/agency/publishRule/publishRule'>
+                        <!-- <view class="weui-cell__bd">{{item.name}}</view> -->
+                        <view style='margin-top:18rpx;color:blue;text-decoration:underline;'>我已阅读发帖须知并同意相关细则</view> 
+             </navigator> 
+         
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" formType="submit" type="primary">发帖</button>
+            <button class="weui-btn" formType="reset" type="primary">清空</button>
+        </view>
+      </form>
+    </view>
+</view>

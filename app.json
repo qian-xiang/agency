@@ -1,0 +1,48 @@
+{"pages":[
+    "pages/agency/index/index",
+    "pages/agency/test/test",
+     "pages/agency/detail/detail",
+     "pages/agency/help/help",
+    "pages/agency/owner/owner",
+    "pages/agency/about/about",
+    "pages/agency/question/question",
+    "pages/agency/questionDetail/questionDetail",
+    "pages/agency/myInformation/myInformation",
+    "pages/agency/myLove/myLove",
+     "pages/agency/MyRequired/MyRequired",
+    "pages/agency/publish/publish",    
+     "pages/agency/search/search",
+    "pages/agency/accusation/accusation",
+    "pages/agency/publishRule/publishRule",
+     "pages/agency/success/success"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "selectedColor":"#1AAD19",
+    "list": [{
+      "pagePath": "pages/agency/index/index",
+      "text": "首页",
+      "iconPath": "pages/agency/images/HOME.png",
+      "selectedIconPath": "pages/agency/images/HOME_active.png"
+    },
+    {
+      "pagePath": "pages/agency/publish/publish",
+      "text": "请人帮忙",
+      "iconPath": "pages/agency/images/publish.png",
+      "selectedIconPath": "pages/agency/images/publish_active.png"
+    },
+    {
+      "pagePath": "pages/agency/owner/owner",
+      "text": "个人中心",
+      "iconPath": "pages/agency/images/owner.png",
+      "selectedIconPath": "pages/agency/images/owner_active.png"
+    }]
+  
+  } 
+}

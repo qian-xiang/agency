@@ -1,0 +1,84 @@
+@import '/pages/weui.wxss';
+.top{
+  height: 300rpx;
+  /* border: 1px solid blue; */
+  /* background-color:#696969; */
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+}
+.top image{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+}
+
+.loginButton::after{
+  border: none;
+}
+
+/* 个人资料和记录样式 */
+.private{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid pink;
+}
+.information{
+  display: flex;
+  display: -webkit-flex;
+  /* border: 1px solid pink; */
+  margin-top: 20rpx;
+  position: relative;
+}
+.icon{
+  height: 100rpx;
+  width:50rpx;
+}
+.information label{
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+/* 设置指示箭头的样式 */
+.ps{
+  height: 50rpx;
+  width:50rpx;
+  position: absolute;
+  right: 0px;
+  margin-top: 3%;
+}
+/* 设置详情样式 */
+.detail{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.detail-top{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.detail-bottom{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  /* flex-wrap: wrap;  */
+}
+
+.detail image{
+  height: 50rpx;
+  width:50rpx;
+  border-radius: 20rpx;
+}
+
+.loginButton:active{
+  width: 260rpx;
+  height: 150rpx;
+  transition: width 2s,height 2s;
+}

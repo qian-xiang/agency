@@ -1,0 +1,19 @@
+
+<view class='weui-flex' wx:for='{{detailData}}' wx:key='*this' style='flex-direction:column;align-items:center;'>
+<!-- ***********若布局有变化，弹性容器应设置宽高************ -->
+        <!-- 帖子的内容 -->
+        <view class='comment_margin'>{{item.content}}</view>
+        <!-- 发帖人的联系方式 -->
+        <view class='comment_margin'>{{item.contact}}</view>
+        <image class='comment_margin' wx:for='{{item.contentImgSrcArray}}' wx:key='*this' wx:if='{{item!=null}}' src='{{"https://www.zbhqx.cn/images/campus_help/published/"+paperId+"/"+item}}' style='border-radius:30rpx;'></image>
+</view>
+
+
+    <button open-type='share' class="weui-btn" type="primary" style='position:fixed;bottom:0;width:96%;left:2%;'>请求好友助力</button>        
+    <!-- <navigator url='/pages/agency/cus-service/cus-service'>
+        <button class="weui-btn" type="warn">前往客服对话页面</button> 
+    </navigator>        -->
+  
+
+
+    

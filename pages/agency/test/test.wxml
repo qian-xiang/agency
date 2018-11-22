@@ -1,0 +1,47 @@
+
+<view class="article-list-li" style='margin-top:20rpx;'>
+    <navigator url="/pages/agency/detail/detail?paperId={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for='{{requiredReccordArray}}' wx:key='requiredReccordArray'>
+    
+      <view class="article-list-title">{{item.title}}</view>
+      <view class="article-list-content" style='display:flex;'>
+        <view class="article-list-thumbs">
+          <image src="https://www.zbhqx.cn/campus_help/posted/images/{{item.id}}/{{item.is_upload_img[0]}}" mode="widthFix" wx:if='{{item.is_upload_img[0].length>0}}'></image>
+        </view>
+        <view class="article-list-desc" style='flex-grow:1;flex-shrink: 1;'>
+          <!-- <view class='article-list-text'> 这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o</view> -->
+          <view class="article-list-tag">
+            <view id='reward'>
+              <!-- <view class='badge success round mr-sm'>报酬：</view> -->
+              <view class='badge danger round'>报酬：{{item.reward}}</view>
+            </view>         
+            <view id='sort'>
+              <!-- <view class='badge success round mr-sm'>类别：</view> -->
+              <!-- style='background-color:#63A2FF;' -->
+              <view class='badge success round'>类别：{{item.sort}}</view>
+            </view>
+            <view id='status'>
+              <!-- <view class='badge success round mr-sm'>状态：</view> -->
+              <view class='badge success round' style='background-color:#AB66FF'>状态：{{item.status}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>      
+    
+      <view class="item-list-data">
+        <image src="{{item.head_image}}" class='round'></image>
+        <view class='item-list-author'>
+          <view class="item-list-name">{{item.nickname}}</view>
+          <view class="item-list-info">
+            <text class="iconfont icon-timefill"> {{item.time}}</text>
+            <view class="item-list-num" style='font-size:18px;'>
+              <text class="iconfont icon-attentionfill">{{item.browseCount}}</text>
+              <text class="iconfont icon-likefill" data-request-type='favorite' data-array-index='{{index}}' id='{{item.id}}' catchtap='userAction' wx:if='{{item.isFavorite}}'>{{item.favoriteCount}}</text>
+              <text class="iconfont icon-appreciatefill" data-request-type='topRecord' data-array-index='{{index}}' id='{{item.id}}' catchtap='userAction' wx:if='{{item.isTopRecord}}'>{{item.topRecordCount}}</text>  
+            </view>
+          </view>
+        </view>
+      </view>
+</view>
+
+ 

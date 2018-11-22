@@ -1,0 +1,36 @@
+@import '/pages/weui.wxss';
+#top{
+    height: 170rpx;
+    /* border: 1px solid red; */
+    margin: auto;
+}
+
+.form{
+  height: 900rpx;
+  /* 需考虑下浏览器的兼容问题 */
+  width: -webkit-fit-content;
+  width: fit-content;
+  margin: auto;  
+  /* border:1px solid red;  */
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+   justify-content: space-around; 
+}
+.in{
+  display: -webkit-flex;
+  display: flex;
+}
+.in image{
+  height: 50rpx;
+  width: 60rpx;
+}
+textarea{
+  border: 1px solid gray;
+}
+
+/* 必选项*的样式 */
+.front{
+  color:red;
+  margin-top: 10rpx;
+}
